@@ -1,9 +1,11 @@
 const express = require('express')
+const example = require('./../models/example')
 const Example = require('./../models/example')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.send("Hello!")
+router.get('/', async (req, res) => {
+  const examples = await example.find()
+  res.send(examples)
 })
 
 router.post('/', async (req, res) => {
