@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const exampleRouter = require('./routes/example')
 
@@ -16,6 +17,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 
+app.use(cors())
 app.use('/example', exampleRouter)
 
 app.get('/', (req, res) => {

@@ -7,14 +7,12 @@ services:
     ports:
       - "4000:8080"
     volumes:
-      - api_node_modules:/usr/src/app/node_modules/ # This will preserve the node_modules that is installed in the docker container
       - ./api:/usr/src/app
   web:
     build: ./app
     ports:
       - "8080:8080"
     volumes:
-      - app_node_modules:/usr/src/app/node_modules/ # This will preserve the node_modules that is installed in the docker container
       - ./app:/usr/src/app
 
   mongodb:
@@ -28,6 +26,4 @@ services:
 
   
 volumes:
-  api_node_modules:
-  app_node_modules:
   mongodb_data_container:

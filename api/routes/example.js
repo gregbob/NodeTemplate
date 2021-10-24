@@ -1,10 +1,9 @@
 const express = require('express')
-const example = require('./../models/example')
 const Example = require('./../models/example')
 const router = express.Router()
 
 router.get('/', async (req, res) => {
-  const examples = await example.find()
+  const examples = await Example.find()
   res.send(examples)
 })
 
